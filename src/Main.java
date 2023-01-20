@@ -5,10 +5,11 @@ public class Main {
         int width = Integer.parseInt(args[1]);
         printDiamond(height, width);
     }
-    private static void printDiamond(int height, int width)   {
+
+    private static void printDiamond(int height, int width) {
         for (int i = -height; i <= height; i++) {
-            for (int j = -width; j <= width; j++) {
-                if (Math.abs(i) + Math.abs(j) <= height) {
+            for (int j = -width/2; j <= width/2; j++) {
+                if (Math.abs(i) + Math.abs(j) == height/2) {
                     System.out.print("#");
                 } else {
                     System.out.print(" ");
