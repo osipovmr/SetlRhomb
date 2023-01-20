@@ -12,7 +12,7 @@ public class Main {
     }
 
     private static void printDiamond(int height, int width) {
-        for (int i = -height/2; i <= height/2; i++) {
+        for (int i = -height; i <= height; i++) {
             for (int j = -width/2; j <= width/2; j++) {
                 if (Math.abs(i) + Math.abs(j) == height/2) {
                     System.out.print("#");
