@@ -4,17 +4,18 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Hello world!");
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter height: ");
+        System.out.print("Enter height: ");
         int height = scanner.nextInt();
-        System.out.println("Enter width: ");
+        System.out.print("Enter width: ");
         int width = scanner.nextInt();
+        scanner.close();
         printDiamond(height, width);
     }
 
     private static void printDiamond(int height, int width) {
-        for (int i = -height; i <= height; i++) {
-            for (int j = -width/2; j <= width/2; j++) {
-                if (Math.abs(i) + Math.abs(j) == height/2) {
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < width; j++) {
+                if (j == width/2 - i || j == width/2 + i || i == height/2 - j || i == height/2 + j || j == width/2 || i == height/2) {
                     System.out.print("#");
                 } else {
                     System.out.print(" ");
@@ -24,3 +25,4 @@ public class Main {
         }
     }
 }
+
