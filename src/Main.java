@@ -8,6 +8,7 @@ public class Main {
         int height = scanner.nextInt();
         System.out.print("Enter width: ");
         int width = scanner.nextInt();
+        scanner.close();
         printDiamond(height, width);
     }
 
