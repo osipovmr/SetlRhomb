@@ -2,11 +2,11 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        System.out.println("Hello world! This program draws a rhombus.");
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter height: ");
+        System.out.print("Enter height: ");
         int height = scanner.nextInt();
-        System.out.println("Enter width: ");
+        System.out.print("Enter width: ");
         int width = scanner.nextInt();
         printDiamond(height, width);
     }
