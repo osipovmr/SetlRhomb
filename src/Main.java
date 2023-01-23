@@ -39,24 +39,29 @@ public class Main {
         System.out.println(core);
 
         for (int i = 1; i < height + 1; i++) {
+            int left = 0;
+            int right = 0;
             for (int j = 1; j < width + 1; j++) {
-                if ((j == core) && ((i == 1) || (i == height)) ) {   //top and floor
+
+                if ((j == core) && ((i == 1) || (i == height))) {   //top and floor
                     System.out.print("#");
-                } else if ((i + j == core + 1) && (i != 1) && (i != height) && (j != core)) {    //top left
+                } else if ((i + j == core + 1) && (i != 1) && (i != height) && (j != core) && (left < 2)) {    //top left
                     System.out.print("#");
-                }
-                else if ((i - j == core - width) && (i != 1) && (i != height) && (j != core)) { //top right
+                    if (j < core) left = left + 1; else right = right + 1;
+                } else if ((i - j == core - width) && (i != 1) && (i != height) && (j != core) && (right < 2)) { //top right
                     System.out.print("#");
-                }
-                else if ((i - j == core - 1) && (i != 1) && (i != height) && (j != core)) {    //floor left
+                    if (j < core) left = left + 1; else right = right + 1;
+                } else if ((i - j == core - 1) && (i != 1) && (i != height) && (j != core) && (left < 2)) {    //floor left
                     System.out.print("#");
-                }
-                else if ((i + j == core + width) && (i != 1) && (i != height) && (j != core)) {  //floor right
+                    if (j < core) left = left + 1; else right = right + 1;
+                } else if ((i + j == core + width) && (i != 1) && (i != height) && (j != core) && (right < 2)) {  //floor right
                     System.out.print("#");
-                }
-                else if ((Math.abs(height - width) > 2) && (Math.abs(i - core) >= 1) && (j != core) && (i != 1) && (i != height))
+                    if (j < core) left = left + 1; else right = right + 1;
+                } else if ((Math.abs(height - width) > 2) && (Math.abs(i - core) >= 1) && (j != core) && (i != 1) && (i != height) && (j == 1 || j == width) && ((left < 1) || (right < 1)) && (left + right < 2)) {
                     System.out.print("#");
-                else System.out.print(" ");
+                    if (j < core) left = left + 1; else right = right + 1;
+
+                } else System.out.print(" ");
             }
             System.out.println();
         }
